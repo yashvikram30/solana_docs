@@ -21,6 +21,8 @@ console.log(`suppliedToPubkey: ${suppliedToPubkey}`);
 
 // we are the sender
 const senderKeypair = getKeypairFromEnvironment("SECRET_KEY");
+console.log("Sender public key:", senderKeypair.publicKey.toBase58());
+
 
 // suppliedToPubkey is the receiver
 const toPubkey = new PublicKey(suppliedToPubkey);
@@ -30,9 +32,13 @@ console.log(
     `✅ Loaded our own keypair, the destination public key, and connected to Solana`,
 );
 
+
+
 // Step:1 creating a transaction
 const transaction = new Transaction();
 const lamports_to_send = 5000;
+
+
 // Step:2 information about sol to send
 const solSendInformation = SystemProgram.transfer({
     fromPubkey: senderKeypair.publicKey,
