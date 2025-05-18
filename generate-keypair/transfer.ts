@@ -33,7 +33,6 @@ console.log(
 );
 
 
-
 // Step:1 creating a transaction
 const transaction = new Transaction();
 const lamports_to_send = 5000;
